@@ -11,13 +11,20 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 class HomeScreen extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    const {navigation} = this.props;
+
     return (
       <SafeAreaView>
         <ScrollView>
           <View style={styles.titleWrapper}>
             <Text style={{fontSize: 20}}>딥포커스 🔥</Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ProfileScreen')}>
               <Icon name="user-astronaut" size={30} color="#666666" />
             </TouchableOpacity>
           </View>
@@ -36,7 +43,9 @@ class HomeScreen extends Component {
             />
           </View>
           <View style={styles.AddBookBtnWrapper}>
-            <TouchableOpacity style={styles.AddBookBtn}>
+            <TouchableOpacity
+              style={styles.AddBookBtn}
+              onPress={() => navigation.navigate('SearchBookScreen')}>
               <Text style={{fontSize: 40, color: 'grey'}}>+</Text>
               <Text style={{color: 'grey'}}>책을 선택해주세요!</Text>
             </TouchableOpacity>

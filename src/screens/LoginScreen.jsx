@@ -9,6 +9,7 @@ export default class LoginScreen extends Component {
   }
 
   render() {
+    const {navigation} = this.props;
     return (
       <View
         style={{
@@ -20,7 +21,7 @@ export default class LoginScreen extends Component {
         <Text style={{fontSize: 20, marginBottom: '10%'}}>
           지금부터 딥포커스 시작
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
           <Image source={kakao} style={{width: 200}} />
         </TouchableOpacity>
       </View>
