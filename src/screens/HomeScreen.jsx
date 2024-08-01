@@ -35,11 +35,11 @@ class HomeScreen extends Component {
               placeholder="나의 도서를 검색해보세요!"
             />
           </View>
-          <View style={styles.titleWrapper}>
-            <Text style={{fontSize: 12, color: 'grey'}}>
-              아직은 도서 정보가 없어요.{'\n'}
-              하단의 버튼으로 읽을 책을 추가해주세요!
-            </Text>
+          <View style={styles.AddBookBtnWrapper}>
+            <TouchableOpacity style={styles.AddBookBtn}>
+              <Text style={{fontSize: 40, color: 'grey'}}>+</Text>
+              <Text style={{color: 'grey'}}>책을 선택해주세요!</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.seperateLine}></View>
           <View style={styles.titleWrapper}>
@@ -99,6 +99,24 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingHorizontal: 20,
     fontSize: 14,
+  },
+  AddBookBtnWrapper: {
+    //backgroundColor: 'skyblue',
+    height: 160,
+    marginHorizontal: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  AddBookBtn: {
+    width: '100%',
+    height: '80%',
+    backgroundColor: 'lightgrey',
+    borderRadius: 5,
+    shadowColor: '#000',
+    shadowOffset: {width: 1, height: 1},
+    shadowRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   seperateLine: {
     width: '100%',
