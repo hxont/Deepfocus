@@ -43,14 +43,17 @@ class HomeScreen extends Component {
               style={styles.textField}
               placeholder="나의 도서를 검색해보세요!"
             />
-          </View>
-          <View style={styles.AddBookBtnWrapper}>
             <TouchableOpacity
               style={styles.AddBookBtn}
               onPress={() => navigation.navigate('SearchBookScreen')}>
-              <Text style={{fontSize: 40, color: 'grey'}}>+</Text>
-              <Text style={{color: 'grey'}}>책을 선택해주세요!</Text>
+              <Text style={{fontSize: 30, color: 'grey'}}>+</Text>
             </TouchableOpacity>
+          </View>
+          <View style={styles.titleWrapper}>
+            <Text style={{fontSize: 12, color: 'grey'}}>
+              아직은 도서 정보가 없어요.{'\n'}
+              추가 버튼을 눌러 도서를 추가해보세요!
+            </Text>
           </View>
           <View style={styles.seperateLine}></View>
           <View style={styles.titleWrapper}>
@@ -100,10 +103,11 @@ const styles = StyleSheet.create({
     height: 60,
     marginHorizontal: 40,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
   textField: {
-    width: '100%',
+    width: '75%',
     height: '100%',
     borderColor: '#666666',
     borderWidth: 0.3,
@@ -111,16 +115,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     fontSize: 14,
   },
-  AddBookBtnWrapper: {
-    //backgroundColor: 'skyblue',
-    height: 160,
-    marginHorizontal: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   AddBookBtn: {
-    width: '100%',
-    height: '80%',
+    width: 60,
+    height: 60,
     backgroundColor: 'lightgrey',
     borderRadius: 5,
     shadowColor: '#000',

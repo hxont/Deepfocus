@@ -48,6 +48,7 @@ class BookItem extends Component {
   }
 
   render() {
+    const {navigation} = this.props;
     return (
       <View style={styles.bookItemWrapper}>
         <View style={styles.bookImageWrapper}>
