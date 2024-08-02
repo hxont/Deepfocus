@@ -9,7 +9,7 @@ class GoBackBtn extends Component {
   render() {
     const {navigation} = this.props;
     return (
-      <View style={styles.container}>
+      <View>
         <Icon
           name="chevron-back-outline"
           size={30}

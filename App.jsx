@@ -6,6 +6,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import SearchBookScreen from './src/screens/SearchBookScreen';
+import BookTreeScreen from './src/screens/BookTreeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,11 @@ export default class App extends Component {
           <Stack.Screen
             name="SearchBookScreen"
             component={SearchBookScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="BookTreeScreen"
+            component={BookTreeScreen}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

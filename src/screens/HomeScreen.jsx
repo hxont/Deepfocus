@@ -29,7 +29,9 @@ class HomeScreen extends Component {
             </TouchableOpacity>
           </View>
           <View style={styles.bookTreeBtnWrapper}>
-            <TouchableOpacity style={styles.bookTreeBtn}>
+            <TouchableOpacity
+              style={styles.bookTreeBtn}
+              onPress={() => navigation.navigate('BookTreeScreen')}>
               <Text style={{marginLeft: 30}}>🌳 나만의 독서 나무 확인하기</Text>
             </TouchableOpacity>
           </View>
