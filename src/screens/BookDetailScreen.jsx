@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {SafeAreaView, View} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import GoBackBtn from '../components/GoBackBtn';
 
-class ProfileScreen extends Component {
+class BookDetailScreen extends Component {
   constructor(props) {
     super(props);
   }
@@ -19,4 +18,4 @@ class ProfileScreen extends Component {
   }
 }
 
-export default ProfileScreen;
+export default BookDetailScreen;

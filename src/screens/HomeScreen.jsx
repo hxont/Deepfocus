@@ -7,12 +7,18 @@ import {
   View,
   StyleSheet,
   TextInput,
+  Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import testImage from '../../assets/test_book.png';
 
 class HomeScreen extends Component {
   constructor(props) {
     super(props);
+    this.title = this.props.title;
+    this.author = this.props.author;
+    this.publisher = this.props.publisher;
+    this.image = this.props.image;
   }
 
   render() {
@@ -49,11 +55,13 @@ class HomeScreen extends Component {
               <Text style={{fontSize: 30, color: 'grey'}}>+</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.titleWrapper}>
-            <Text style={{fontSize: 12, color: 'grey'}}>
-              아직은 도서 정보가 없어요.{'\n'}
-              추가 버튼을 눌러 도서를 추가해보세요!
-            </Text>
+          <View style={styles.bookInfoWrapper}>
+            <TouchableOpacity
+              style={styles.bookImageWrapper}
+              onPress={() => navigation.navigate('BookDetailScreen')}>
+              <Image source={testImage} style={styles.bookImage} />
+              <Text style={styles.bookTitleWrapper}>너의 저녁에 나를 1</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.seperateLine}></View>
           <View style={styles.titleWrapper}>
@@ -136,6 +144,28 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: 'center',
     marginHorizontal: 40,
+  },
+  bookInfoWrapper: {
+    //backgroundColor: 'pink',
+    marginHorizontal: 40,
+    marginBottom: 40,
+    height: 250,
+    justifyContent: 'center',
+  },
+  bookImageWrapper: {
+    width: 110,
+    height: 160,
+  },
+  bookImage: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 5,
+  },
+  bookTitleWrapper: {
+    //backgroundColor: 'pink',
+    width: '100%',
+    textAlign: 'center',
+    marginVertical: 10,
   },
 });
 export default HomeScreen;
