@@ -9,7 +9,7 @@ class GoBackBtn extends Component {
   render() {
     const {navigation} = this.props;
     return (
-      <View>
+      <View style={styles.container}>
         <Icon
           name="chevron-back-outline"
           size={30}
@@ -22,9 +22,7 @@ class GoBackBtn extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginLeft: 10,
-  },
+  container: {marginLeft: 10},
 });
 
 export default GoBackBtn;
