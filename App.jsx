@@ -7,7 +7,6 @@ import LoginScreen from './src/screens/LoginScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import SearchBookScreen from './src/screens/SearchBookScreen';
 import BookTreeScreen from './src/screens/BookTreeScreen';
-import BookItem from './src/components/BookItem';
 import BookDetailScreen from './src/screens/BookDetailScreen';
 
 const Stack = createNativeStackNavigator();
@@ -16,37 +15,18 @@ export default class App extends Component {
   render() {
     return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName={'LoginScreen'}>
-          <Stack.Screen
-            name="HomeScreen"
-            component={HomeScreen}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="LoginScreen"
-            component={LoginScreen}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="ProfileScreen"
-            component={ProfileScreen}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="SearchBookScreen"
-            component={SearchBookScreen}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="BookTreeScreen"
-            component={BookTreeScreen}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="BookDetailScreen"
-            component={BookDetailScreen}
-            options={{headerShown: false}}
-          />
+        <Stack.Navigator
+          initialRouteName={'LoginScreen'}
+          screenOptions={{
+            headerShown: false,
+            contentStyle: {backgroundColor: 'white'},
+          }}>
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+          <Stack.Screen name="SearchBookScreen" component={SearchBookScreen} />
+          <Stack.Screen name="BookTreeScreen" component={BookTreeScreen} />
+          <Stack.Screen name="BookDetailScreen" component={BookDetailScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     );
