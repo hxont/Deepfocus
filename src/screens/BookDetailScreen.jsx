@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import GoBackBtn from '../components/GoBackBtn';
 import bookImage from '../../assets/test_book.png';
@@ -18,41 +19,86 @@ class BookDetailScreen extends Component {
     const {navigation} = this.props;
     return (
       <SafeAreaView>
-        <View style={styles.header}>
-          <GoBackBtn navigation={navigation} />
-          <Text style={styles.headerText}>도서 정보</Text>
-        </View>
-        <View style={styles.bookItemWrapper}>
-          <View style={styles.bookImageWrapper}>
-            <Image source={bookImage} style={styles.bookImage} />
+        <ScrollView>
+          <View style={styles.header}>
+            <GoBackBtn navigation={navigation} />
+            <Text style={styles.headerText}>도서 정보</Text>
           </View>
-          <View style={styles.bookInfoWrapper}>
-            <View style={styles.bookTitleWrapper}>
-              <Text style={{fontSize: 15}}>너의 저녁에 나를 1</Text>
+          <View style={styles.bookItemWrapper}>
+            <View style={styles.bookImageWrapper}>
+              <Image source={bookImage} style={styles.bookImage} />
             </View>
-            <View style={styles.bookBtmInfoWrapper}>
-              <View style={styles.authorInfoWrapper}>
-                <Text style={{fontSize: 10, marginVertical: 5}}>이기형</Text>
-                <Text style={{fontSize: 10, marginVertical: 5}}>
-                  신영미디어
-                </Text>
+            <View style={styles.bookInfoWrapper}>
+              <View style={styles.bookTitleWrapper}>
+                <Text style={{fontSize: 15}}>너의 저녁에 나를 1</Text>
+              </View>
+              <View style={styles.bookBtnInfoWrapper}>
+                <View style={styles.authorInfoWrapper}>
+                  <Text style={{fontSize: 10, marginVertical: 5}}>이기형</Text>
+                  <Text style={{fontSize: 10, marginVertical: 5}}>
+                    신영미디어
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
-        </View>
-        <View style={styles.readingBtnWrapper}>
-          <TouchableOpacity
-            style={styles.bookTimerBtn}
-            onPress={() => navigation.navigate('BookTreeScreen')}>
-            <Text>⏰ 독서 타이머</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.bookMemoBtn}
-            onPress={() => navigation.navigate('BookTreeScreen')}>
-            <Text>📒 독서 메모장</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.seperateLine}></View>
+          <View style={styles.readingBtnWrapper}>
+            <TouchableOpacity style={styles.bookTimerBtn}>
+              <Text>⏰ 독서 타이머</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.bookMemoBtn}>
+              <Text>📒 독서 메모장</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.seperateLine}></View>
+          <View style={styles.buttonInfoWrapper}>
+            <Text style={{fontSize: 15}}>나의 독서 타이머</Text>
+            <TouchableOpacity>
+              <Text style={{textDecorationLine: 'underline'}}>더보기</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.timerRecordWrapper}>
+            <View style={styles.timerRecord}>
+              <Text style={{color: 'grey', fontSize: 12}}>
+                아직 기록한{'\n'}시간이 없어요.
+              </Text>
+            </View>
+            <View style={styles.timerRecord}>
+              <Text style={{color: 'grey', fontSize: 12}}>
+                아직 기록한{'\n'}시간이 없어요.
+              </Text>
+            </View>
+            <View style={styles.timerRecord}>
+              <Text style={{color: 'grey', fontSize: 12}}>
+                아직 기록한{'\n'}시간이 없어요.
+              </Text>
+            </View>
+          </View>
+          <View style={styles.seperateLine}></View>
+          <View style={styles.buttonInfoWrapper}>
+            <Text style={{fontSize: 15}}>나의 독서 메모장</Text>
+            <TouchableOpacity>
+              <Text style={{textDecorationLine: 'underline'}}>더보기</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.memoRecordWrapper}>
+            <View style={styles.memoRecord}>
+              <Text style={{marginLeft: 30, color: 'grey'}}>
+                아직 기록되지 않았어요
+              </Text>
+            </View>
+            <View style={styles.memoRecord}>
+              <Text style={{marginLeft: 30, color: 'grey'}}>
+                아직 기록되지 않았어요
+              </Text>
+            </View>
+            <View style={styles.memoRecord}>
+              <Text style={{marginLeft: 30, color: 'grey'}}>
+                아직 기록되지 않았어요
+              </Text>
+            </View>
+          </View>
+        </ScrollView>
       </SafeAreaView>
     );
   }
@@ -99,7 +145,7 @@ const styles = StyleSheet.create({
     height: '70%',
     width: '100%',
   },
-  bookBtmInfoWrapper: {
+  bookBtnInfoWrapper: {
     //backgroundColor: 'grey',
     height: '30%',
     flexDirection: 'row',
@@ -146,6 +192,52 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 1,
     backgroundColor: '#D9D9D9',
+  },
+  buttonInfoWrapper: {
+    //backgroundColor: 'pink',
+    height: 60,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: 30,
+  },
+  timerRecordWrapper: {
+    //backgroundColor: 'blue',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 30,
+    marginBottom: 30,
+  },
+  timerRecord: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'lightgrey',
+    borderRadius: 15,
+    shadowColor: '#000',
+    shadowOffset: {width: 1, height: 1},
+    shadowRadius: 5,
+    shadowOpacity: 0.2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  memoRecordWrapper: {
+    //backgroundColor: 'skyblue',
+    height: 180,
+    marginHorizontal: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  memoRecord: {
+    width: '100%',
+    height: 50,
+    backgroundColor: 'white',
+    borderRadius: 15,
+    shadowColor: '#000',
+    shadowOffset: {width: 1, height: 1},
+    shadowRadius: 5,
+    shadowOpacity: 0.2,
+    justifyContent: 'center',
+    marginVertical: 5,
   },
 });
 
